@@ -35,7 +35,7 @@ export default class JSXStyle extends Component {
     return info
       .map(tagInfo => {
         const [baseId, props] = tagInfo
-        return this.styleSheetRegistry.computeId(baseId, props)
+        return defaultStyleSheetRegistry.computeId(baseId, props)
       })
       .join(' ')
   }
