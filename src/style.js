@@ -1,20 +1,47 @@
 import { Component } from 'react'
+import PropTypes from 'prop-types'
 import StyleSheetRegistry from './stylesheet-registry'
 
-const styleSheetRegistry = new StyleSheetRegistry()
+const styleSheetRegistryCache = new WeakMap()
+const getDefaultDocument = () =>
+  typeof document !== 'undefined' ? document : undefined
+const defaultDocument = getDefaultDocument()
+const defaultStyleSheetRegistry = new StyleSheetRegistry({
+  document: defaultDocument
+})
+const isBrowser = typeof window !== 'undefined'
+
+/**
+ * Add to cache
+ */
+if (isBrowser && defaultDocument)
+  styleSheetRegistryCache.set(defaultDocument, defaultStyleSheetRegistry)
 
 export default class JSXStyle extends Component {
+  constructor(props, context) {
+    super(props)
+    const { document = getDefaultDocument() } = context
+    if (isBrowser && !styleSheetRegistryCache.has(document)) {
+      styleSheetRegistryCache.set(
+        document,
+        new StyleSheetRegistry({ document })
+      )
+    }
+    this.styleSheetRegistry = isBrowser
+      ? styleSheetRegistryCache.get(document)
+      : defaultStyleSheetRegistry
+  }
   static dynamic(info) {
     return info
       .map(tagInfo => {
         const [baseId, props] = tagInfo
-        return styleSheetRegistry.computeId(baseId, props)
+        return this.styleSheetRegistry.computeId(baseId, props)
       })
       .join(' ')
   }
 
   componentWillMount() {
-    styleSheetRegistry.add(this.props)
+    this.styleSheetRegistry.add(this.props, this.context.document)
   }
 
   shouldComponentUpdate(nextProps) {
@@ -24,11 +51,11 @@ export default class JSXStyle extends Component {
   // To avoid FOUC, we process new changes
   // on `componentWillUpdate` rather than `componentDidUpdate`.
   componentWillUpdate(nextProps) {
-    styleSheetRegistry.update(this.props, nextProps)
+    this.styleSheetRegistry.update(this.props, nextProps)
   }
 
   componentWillUnmount() {
-    styleSheetRegistry.remove(this.props)
+    this.styleSheetRegistry.remove(this.props)
   }
 
   render() {
@@ -36,8 +63,12 @@ export default class JSXStyle extends Component {
   }
 }
 
+JSXStyle.contextTypes = {
+  document: PropTypes.object
+}
+
 export function flush() {
-  const cssRules = styleSheetRegistry.cssRules()
-  styleSheetRegistry.flush()
+  const cssRules = defaultStyleSheetRegistry.cssRules()
+  defaultStyleSheetRegistry.flush()
   return new Map(cssRules)
 }
