@@ -6,13 +6,15 @@ export default class StyleSheetRegistry {
   constructor({
     styleSheet = null,
     optimizeForSpeed = false,
-    isBrowser = typeof window !== 'undefined'
+    isBrowser = typeof window !== 'undefined',
+    document
   } = {}) {
     this._sheet =
       styleSheet ||
       new DefaultStyleSheet({
         name: 'styled-jsx',
-        optimizeForSpeed
+        optimizeForSpeed,
+        document
       })
 
     this._sheet.inject()
