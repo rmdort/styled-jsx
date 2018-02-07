@@ -7,15 +7,15 @@ const isProd = process.env && process.env.NODE_ENV === 'production'
 const isString = o => Object.prototype.toString.call(o) === '[object String]'
 
 export default class StyleSheet {
-  constructor(
-    {
-      name = 'stylesheet',
-      optimizeForSpeed = isProd,
-      isBrowser = typeof window !== 'undefined'
-    } = {}
-  ) {
+  constructor({
+    name = 'stylesheet',
+    optimizeForSpeed = isProd,
+    isBrowser = typeof window !== 'undefined',
+    document
+  } = {}) {
     invariant(isString(name), '`name` must be a string')
     this._name = name
+    this._document = document
     this._deletedRulePlaceholder = `#${name}-deleted-rule____{}`
 
     invariant(
@@ -90,9 +90,9 @@ export default class StyleSheet {
     }
 
     // this weirdness brought to you by firefox
-    for (let i = 0; i < document.styleSheets.length; i++) {
-      if (document.styleSheets[i].ownerNode === tag) {
-        return document.styleSheets[i]
+    for (let i = 0; i < this._document.styleSheets.length; i++) {
+      if (this._document.styleSheets[i].ownerNode === tag) {
+        return this._document.styleSheets[i]
       }
     }
   }
@@ -224,13 +224,14 @@ export default class StyleSheet {
         'makeStyleTag acceps only strings as second parameter'
       )
     }
-    const tag = document.createElement('style')
+    const tag = this._document.createElement('style')
     tag.type = 'text/css'
     tag.setAttribute(`data-${name}`, '')
     if (cssString) {
-      tag.appendChild(document.createTextNode(cssString))
+      tag.appendChild(this._document.createTextNode(cssString))
     }
-    const head = document.head || document.getElementsByTagName('head')[0]
+    const head =
+      this._document.head || this._document.getElementsByTagName('head')[0]
     if (relativeToTag) {
       head.insertBefore(tag, relativeToTag)
     } else {
