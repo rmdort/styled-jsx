@@ -1,5 +1,5 @@
 {
-  "name": "styled-jsx",
+  "name": "@olasearch/styled-jsx",
   "version": "2.2.4",
   "license": "MIT",
   "repository": "zeit/styled-jsx",
