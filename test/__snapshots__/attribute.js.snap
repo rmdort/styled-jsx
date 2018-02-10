@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generate attribute for mixed modes (global, static, dynamic) 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 import styles from './styles';
 
 const styles2 = require('./styles2');
@@ -99,7 +99,7 @@ export const Test11 = ({ color }) => {
 exports[`rewrites className 1`] = `
 "var _this = this;
 
-import _JSXStyle from \\"styled-jsx/style\\";
+import _JSXStyle from \\"@olasearch/styled-jsx/style\\";
 export default (() => <div className={\\"jsx-2886504620\\"}>
     <div {...test.test} className={\\"jsx-2886504620\\" + \\" \\" + (test.test.className != null && test.test.className || \\"test\\")} />
     <div {...test.test.test} className={\\"jsx-2886504620\\" + \\" \\" + (test.test.test.className != null && test.test.test.className || \\"test\\")} />

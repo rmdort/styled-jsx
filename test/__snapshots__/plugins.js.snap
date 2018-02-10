@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`applies plugins 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 import styles from './styles';
 const color = 'red';
 
@@ -13,7 +13,7 @@ export default (() => <div className={'jsx-3382438999 ' + \`jsx-\${styles.__scop
 `;
 
 exports[`passes options to plugins 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 import styles from './styles';
 const color = 'red';
 
