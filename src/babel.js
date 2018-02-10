@@ -290,7 +290,7 @@ export default function({ types: t }) {
 
           const importDeclaration = t.importDeclaration(
             [t.importDefaultSpecifier(t.identifier(STYLE_COMPONENT))],
-            t.stringLiteral('styled-jsx/style')
+            t.stringLiteral('@olasearch/styled-jsx/style')
           )
 
           node.body.unshift(importDeclaration)

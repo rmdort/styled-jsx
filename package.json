@@ -1,6 +1,6 @@
 {
   "name": "@olasearch/styled-jsx",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "license": "MIT",
   "repository": "zeit/styled-jsx",
   "description": "Full CSS support for JSX without compromises",
@@ -51,7 +51,7 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*.js,!babel.js": [
       "npm run lint",
       "prettier --single-quote --no-semi --write",
       "npm test",

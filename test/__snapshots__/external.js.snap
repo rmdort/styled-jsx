@@ -125,7 +125,7 @@ export default _defaultExport;"
 `;
 
 exports[`use external stylesheets (global only) 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 import styles, { foo as styles3 } from './styles';
 
 const styles2 = require('./styles2');
@@ -141,7 +141,7 @@ export default (() => <div>
 `;
 
 exports[`use external stylesheets (multi-line) 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 import styles from './styles';
 
 export default (() => <div className={\`jsx-\${styles.__scopedHash}\`}>
@@ -151,7 +151,7 @@ export default (() => <div className={\`jsx-\${styles.__scopedHash}\`}>
 `;
 
 exports[`use external stylesheets 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 import styles from './styles';
 const styles2 = require('./styles2');
 import { foo as styles3 } from './styles';

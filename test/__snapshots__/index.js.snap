@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generates source maps 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 export default (() => <div className={\\"jsx-2743241663\\"}>
     <p className={\\"jsx-2743241663\\"}>test</p>
     <p className={\\"jsx-2743241663\\"}>woot</p>
@@ -17,7 +17,7 @@ exports[`ignores when attribute is absent 1`] = `
 `;
 
 exports[`ignores whitespace around expression container 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 export default (() => <div className={\\"jsx-2743241663\\"}>
     <p className={\\"jsx-2743241663\\"}>test</p>
     <p className={\\"jsx-2743241663\\"}>woot</p>
@@ -27,7 +27,7 @@ export default (() => <div className={\\"jsx-2743241663\\"}>
 `;
 
 exports[`mixed global and scoped 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 const Test = () => <_JSXStyle styleId={\\"2743241663\\"} css={\\"p{color:red;}\\"} />;
 
 export default (() => <div className={\\"jsx-2673076688\\"}>
@@ -38,7 +38,7 @@ export default (() => <div className={\\"jsx-2673076688\\"}>
 `;
 
 exports[`should have different jsx ids 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 const color = 'red';
 const otherColor = 'green';
 
@@ -59,7 +59,7 @@ export default (() => <div>
 `;
 
 exports[`should not add the data-jsx attribute to components instances 1`] = `
-"import _JSXStyle from \\"styled-jsx/style\\";
+"import _JSXStyle from \\"@olasearch/styled-jsx/style\\";
 const Test = () => <div className={\\"jsx-2529315885\\"}>
     <span className={\\"jsx-2529315885\\"}>test</span>
     <Component />
@@ -68,7 +68,7 @@ const Test = () => <div className={\\"jsx-2529315885\\"}>
 `;
 
 exports[`works with class 1`] = `
-"import _JSXStyle from \\"styled-jsx/style\\";
+"import _JSXStyle from \\"@olasearch/styled-jsx/style\\";
 export default class {
 
   render() {
@@ -82,7 +82,7 @@ export default class {
 `;
 
 exports[`works with css tagged template literals in the same file 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 
 
 export default (({ children }) => <div className={\`jsx-\${styles.__scopedHash}\`}>
@@ -106,7 +106,7 @@ class Test extends React.Component {
 `;
 
 exports[`works with expressions in template literals 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 const darken = c => c;
 const color = 'red';
 const otherColor = 'green';
@@ -134,7 +134,7 @@ export default (({ display }) => <div className={'jsx-3922596756 ' + _JSXStyle.d
 `;
 
 exports[`works with global styles 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 const Test = () => <div className={\\"jsx-2209073070\\"}>
     <_JSXStyle styleId={\\"2209073070\\"} css={\\"body{color:red;}:hover{color:red;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-animation:foo 1s ease-out;animation:foo 1s ease-out;}div a{display:none;}[data-test]>div{color:red;}\\"} />
   </div>;
@@ -143,7 +143,7 @@ const Test2 = () => <_JSXStyle styleId={\\"2743241663\\"} css={\\"p{color:red;}\
 `;
 
 exports[`works with multiple jsx blocks 1`] = `
-"import _JSXStyle from \\"styled-jsx/style\\";
+"import _JSXStyle from \\"@olasearch/styled-jsx/style\\";
 const attrs = {
   id: 'test'
 };
@@ -172,7 +172,7 @@ export default class {
 `;
 
 exports[`works with non styled-jsx styles 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 export default (() => <div className={\\"jsx-2743241663\\"}>
     <p className={\\"jsx-2743241663\\"}>woot</p>
     <style dangerouslySetInnerHTML={{ __html: \`body { margin: 0; }\` }}></style>
@@ -181,7 +181,7 @@ export default (() => <div className={\\"jsx-2743241663\\"}>
 `;
 
 exports[`works with stateless 1`] = `
-"import _JSXStyle from 'styled-jsx/style';
+"import _JSXStyle from '@olasearch/styled-jsx/style';
 export default (() => <div className={\\"jsx-2743241663\\"}>
     <p className={\\"jsx-2743241663\\"}>test</p>
     <p className={\\"jsx-2743241663\\"}>woot</p>
