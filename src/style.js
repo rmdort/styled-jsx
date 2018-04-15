@@ -31,13 +31,12 @@ export default class JSXStyle extends Component {
       ? styleSheetRegistryCache.get(document)
       : defaultStyleSheetRegistry
   }
+  
   static dynamic(info) {
     return info
       .map(tagInfo => {
         const baseId = tagInfo[0]
         const props = tagInfo[1]
-        return styleSheetRegistry.computeId(baseId, props)
-        const [baseId, props] = tagInfo
         return defaultStyleSheetRegistry.computeId(baseId, props)
       })
       .join(' ')
